@@ -19,10 +19,10 @@ public:
     bool remove_link(const Link *link);
     bool has_link_to(const Vertex *vertex);
 
-    void get_linked_vertexes(std::shared_ptr<Vertex> *vertexes, size_t &count);
+    std::vector<std::shared_ptr<Vertex>> get_linked_vertexes();
 
     unsigned int get_id();
 
     unsigned int get_path_length();
-    void set_path_length();
+    void set_path_length(unsigned int path_length);
 };
