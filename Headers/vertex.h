@@ -18,6 +18,7 @@ public:
     bool add_link(std::shared_ptr<Link> link);
     bool remove_link(const Link *link);
     bool has_link_to(const Vertex *vertex);
+    std::shared_ptr<Link> get_link_to(const Vertex *vertex);
 
     std::vector<std::shared_ptr<Vertex>> get_linked_vertexes();
 

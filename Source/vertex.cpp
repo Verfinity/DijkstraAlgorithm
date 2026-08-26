@@ -1,4 +1,4 @@
-#include "vertex.h"
+#include "../Headers/vertex.h"
 
 Vertex::Vertex(unsigned int id) : id(id) { }
 
@@ -37,6 +37,16 @@ bool Vertex::has_link_to(const Vertex *vertex) {
             return true;
     }
     return false;
+}
+
+std::shared_ptr<Link> Vertex::get_link_to(const Vertex *vertex) {
+    std::shared_ptr<Vertex> linked_vertex;
+    for (auto &lnk : links) {
+        if ((linked_vertex = lnk->get_linked_vertex(this)) &&
+            linked_vertex.get() == vertex)
+            return lnk;
+    }
+    return std::shared_ptr<Link>();
 }
 
 std::vector<std::shared_ptr<Vertex>> Vertex::get_linked_vertexes() {
