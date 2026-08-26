@@ -2,7 +2,8 @@
 
 #include <vector>
 #include <memory>
-#include "link.h"
+
+class Link;
 
 class Vertex {
 private:

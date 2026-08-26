@@ -1,4 +1,5 @@
 #include "../Headers/vertex.h"
+#include "../Headers/link.h"
 
 Vertex::Vertex(unsigned int id) : id(id) { }
 

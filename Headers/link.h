@@ -1,7 +1,8 @@
 #pragma once
 
 #include <memory>
-#include "vertex.h"
+
+class Vertex;
 
 class Link {
 private:
