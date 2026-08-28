@@ -12,7 +12,9 @@ private:
 public:
     Link(unsigned int weight, std::shared_ptr<Vertex> v1, std::shared_ptr<Vertex> v2);
 
-    std::shared_ptr<Vertex> get_linked_vertex(const Vertex *from_vertex);
+    ~Link();
+
+    std::shared_ptr<Vertex> get_linked_vertex_from(const Vertex *from_vertex);
 
     unsigned int get_weight();
 };

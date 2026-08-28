@@ -1,4 +1,5 @@
-#include "../Headers/graph.h"
+#include "graph.h"
+#include <iostream>
 
 std::shared_ptr<Vertex> Graph::get_vertex(unsigned int id) {
     for (auto &vert : vertexes)
@@ -17,9 +18,14 @@ bool Graph::create_vertex(unsigned int id) {
 }
 
 bool Graph::remove_vertex(unsigned int id) {
-    return std::erase_if(vertexes, [id] (std::shared_ptr<Vertex> vertex) {
-        return vertex->get_id() == id;
-    });
+    if (std::shared_ptr<Vertex> vertex = get_vertex(id)) {
+        vertex->remove_all_links();
+        return std::erase_if(vertexes, [id] (std::shared_ptr<Vertex> vertex) {
+            return vertex->get_id() == id;
+        });
+    }
+    else
+        return false;
 }
 
 bool Graph::create_link(unsigned int weight, unsigned int v1_id, unsigned int v2_id) {
