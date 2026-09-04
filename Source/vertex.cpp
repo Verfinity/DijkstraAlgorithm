@@ -58,6 +58,10 @@ std::shared_ptr<Link> Vertex::get_link_to(const Vertex *vertex) {
     return std::shared_ptr<Link>();
 }
 
+std::vector<std::shared_ptr<Link>> Vertex::get_links() {
+    return links;
+}
+
 std::vector<std::shared_ptr<Vertex>> Vertex::get_linked_vertexes() {
     std::vector<std::shared_ptr<Vertex>> vertexes;
     std::shared_ptr<Vertex> linked_vertex;

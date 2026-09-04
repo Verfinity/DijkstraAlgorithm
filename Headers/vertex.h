@@ -2,13 +2,17 @@
 
 #include <vector>
 #include <memory>
+#include "dijkstra_constants.h"
 
 class Link;
 
 class Vertex {
+public:
+    std::weak_ptr<Vertex> next_vertex; // dijstrka
+
 private:
     unsigned int id;
-    unsigned int path_length;
+    unsigned int path_length = dijkstra_constants::INFINITY_PATH; // dijkstra
     std::vector<std::shared_ptr<Link>> links;
 
 public:
@@ -23,6 +27,7 @@ public:
     std::shared_ptr<Link> get_link_to(const Vertex *vertex);
 
     std::vector<std::shared_ptr<Vertex>> get_linked_vertexes();
+    std::vector<std::shared_ptr<Link>> get_links();
 
     unsigned int get_id();
 
